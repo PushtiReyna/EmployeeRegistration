@@ -1,0 +1,87 @@
+﻿@model EmployeeRegistration.Models.Employee
+
+<h1 class="text-center">New Registration</h1>
+<div class="row">
+    <div class=" col-4 offset-4">
+        <form asp-action="Create" method="post">
+
+            <div class="mb-3">
+                <label class=" form-label">First Name</label>
+                <input type="text"  class=" form-control" asp-for=FirstName placeholder="Enter FirstName" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class=" form-label">Middle Name</label>
+                <input type="text" class=" form-control" asp-for=MiddleName placeholder="Enter MiddleName" />
+                <span asp-validation-for="MiddleName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class=" form-label">Last Name</label>
+                <input type="text" class=" form-control" asp-for=LastName placeholder="Enter LastName" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class=" form-label">Address</label>
+                <textarea rows="3" cols="15" class=" form-control" asp-for=Address placeholder="Enter Address"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class=" form-label">Email</label>
+                <input type="email" class=" form-control" asp-for=Email placeholder="Enter Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class=" form-label">Date Of Birth</label>
+                <input type="date" class=" form-control" asp-for=Dob placeholder="Enter Date Of Birth" />
+                <span asp-validation-for="Dob" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class=" form-label">Mobile No.</label>
+                <input type="number" class=" form-control" asp-for=Mobile1 placeholder="Enter Mobile No." />
+                <span asp-validation-for="Mobile1" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class=" form-label">Alternate Mobile No.</label>
+                <input type="number" class=" form-control" asp-for=Mobile2 placeholder="Enter Alternate Mobile No." />
+                <span asp-validation-for="Mobile2" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class=" form-label">PinCode</label>
+                <input type="number" class=" form-control" asp-for=PinCode placeholder="Enter PinCode" />
+                <span asp-validation-for="PinCode" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class=" form-label">Gender</label>
+                <br/>
+                <label>Male</label>
+                <input type="radio" asp-for=Gender value="Male" />
+                <label>Female</label>
+                <input type="radio" asp-for=Gender value="Female" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a class="btn btn-danger m-1 text-white" asp-action="Index">Cancel</a>
+            </div>
+
+        </form>
+        
+    </div>
+
+</div>
+
+@section scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
